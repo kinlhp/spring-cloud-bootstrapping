@@ -1,0 +1,26 @@
+version: "3.7"
+networks:
+  spring_cloud_bootstrapping_network:
+    name: spring-cloud-bootstrapping-network
+    driver: bridge
+services:
+  configuration:
+    image: kinlhp/spring-cloud-bootstrapping-configuration:${TAG}
+    container_name: configuration
+    env_file:
+      - .env
+    build:
+      context: spring-cloud-bootstrapping-project/spring-cloud-bootstrapping-configuration/
+      dockerfile: Dockerfile
+      args:
+        - tag=${TAG}
+    restart: always
+    ports:
+      - 8080:8080
+    volumes:
+      ## For git local repository
+      #- ./spring-cloud-bootstrapping-project/spring-cloud-bootstrapping-configuration-repository.git:/spring-cloud-bootstrapping-configuration-repository.git
+      - ${HOME}/.docker/volumes/spring-cloud-bootstrapping/configuration/data:/data
+      - ${HOME}/.docker/volumes/spring-cloud-bootstrapping/configuration/tmp:/tmp
+    networks:
+      - spring_cloud_bootstrapping_network

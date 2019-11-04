@@ -1,0 +1,40 @@
+= Spring Cloud Bootstrapping
+
+
+
+== Building from source
+Can be easily built with the
+https://github.com/takari/maven-wrapper[maven wrapper]. You also need JDK 1.8.
+
+[indent=0]
+----
+	$ ./mvnw clean install -Pdefault
+----
+
+If you want to build with the regular `mvn` command, you will need
+https://maven.apache.org/run-maven/index.html[Maven v3.5.0 or above].
+
+NOTE: You may need to increase the amount of memory available to Maven by setting
+a `MAVEN_OPTS` environment variable with the value `-Xmx512m`. Remember
+to set the corresponding property in your IDE as well if you are building and running
+tests there (e.g. in Eclipse go to `Preferences->Java->Installed JREs` and edit the
+JRE definition so that all processes are launched with those arguments). This property
+is automatically set if you use the maven wrapper.
+
+
+== Starting on Docker container
+You also need Docker Compose.
+
+[indent=0]
+----
+	$ sudo docker-compose up --build --force-recreate --detach
+----
+
+
+
+== Modules
+There are a number of modules in Spring Cloud Bootstrapping, here is a quick overview:
+
+
+=== spring-cloud-bootstrapping-configuration
+Configuration server.

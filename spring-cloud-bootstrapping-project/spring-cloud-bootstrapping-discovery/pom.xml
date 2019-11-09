@@ -7,14 +7,29 @@
 		<version>${revision}</version>
 		<relativePath>../spring-cloud-bootstrapping-parent</relativePath>
 	</parent>
-	<artifactId>spring-cloud-bootstrapping-configuration</artifactId>
+	<artifactId>spring-cloud-bootstrapping-discovery</artifactId>
 	<name>${project.artifactId}</name>
-	<description>Spring Cloud Bootstrapping (configuration)</description>
+	<description>Spring Cloud Bootstrapping (discovery)</description>
 	<properties>
 		<main.basedir>${basedir}/../..</main.basedir>
 	</properties>
 	<dependencies>
 		<!-- Third party -->
+		<dependency> <!-- Eureka server JDK 11+ support -->
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-core</artifactId>
+			<version>${jaxb.version}</version>
+		</dependency>
+		<dependency> <!-- Eureka server JDK 11+ support -->
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>${jaxb.version}</version>
+		</dependency>
+		<dependency> <!-- Eureka server JDK 11+ support -->
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>${jaxb.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -25,11 +40,11 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-config-server</artifactId>
+			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
 		<!-- Test -->
 		<dependency>

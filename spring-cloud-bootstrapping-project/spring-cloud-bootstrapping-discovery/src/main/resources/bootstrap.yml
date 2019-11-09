@@ -1,0 +1,6 @@
+spring:
+  cloud:
+    config:
+      name: discovery
+      uri:
+        - http://configuration:8080

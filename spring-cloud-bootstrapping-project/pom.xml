@@ -18,5 +18,6 @@
 		<module>spring-cloud-bootstrapping-dependencies</module>
 		<module>spring-cloud-bootstrapping-parent</module>
 		<module>spring-cloud-bootstrapping-configuration</module>
+		<module>spring-cloud-bootstrapping-discovery</module>
 	</modules>
 </project>

@@ -1,26 +1,48 @@
 version: "3.7"
 networks:
   spring_cloud_bootstrapping_network:
-    name: spring-cloud-bootstrapping-network
-    driver: bridge
+    name: ${CONTAINER_NETWORK_NAME}
+    driver: ${CONTAINER_NETWORK_DRIVER}
 services:
   configuration:
-    image: kinlhp/spring-cloud-bootstrapping-configuration:${TAG}
-    container_name: configuration
+    image: ${CONTAINER_IMAGE_REPOSITORY}/${CONTAINER_IMAGE_NAME_PREFIX}-${CONFIGURATION_CONTAINER_NAME}:${TAG}
+    container_name: ${CONFIGURATION_CONTAINER_NAME}
     env_file:
       - .env
     build:
-      context: spring-cloud-bootstrapping-project/spring-cloud-bootstrapping-configuration/
+      context: ${CONTAINER_IMAGE_NAME_PREFIX}-project/${CONTAINER_IMAGE_NAME_PREFIX}-${CONFIGURATION_CONTAINER_NAME}/
       dockerfile: Dockerfile
       args:
+        - port=${CONFIGURATION_CONTAINER_PORT}
         - tag=${TAG}
-    restart: always
+    restart: ${CONTAINER_RESTART_POLICY}
     ports:
-      - 8080:8080
+      - "${CONFIGURATION_CONTAINER_PORT}:${CONFIGURATION_CONTAINER_PORT}"
     volumes:
       ## For git local repository
-      #- ./spring-cloud-bootstrapping-project/spring-cloud-bootstrapping-configuration-repository.git:/spring-cloud-bootstrapping-configuration-repository.git
-      - ${HOME}/.docker/volumes/spring-cloud-bootstrapping/configuration/data:/data
-      - ${HOME}/.docker/volumes/spring-cloud-bootstrapping/configuration/tmp:/tmp
+      #- ${HOME}/.docker/volumes/${CONTAINER_IMAGE_NAME_PREFIX}/${CONFIGURATION_CONTAINER_NAME}/${CONTAINER_IMAGE_NAME_PREFIX}-${CONFIGURATION_CONTAINER_NAME}-repository.git:/${CONTAINER_IMAGE_NAME_PREFIX}-${CONFIGURATION_CONTAINER_NAME}-repository.git
+      - ${HOME}/.docker/volumes/${CONTAINER_IMAGE_NAME_PREFIX}/${CONFIGURATION_CONTAINER_NAME}/data:/data
+      - ${HOME}/.docker/volumes/${CONTAINER_IMAGE_NAME_PREFIX}/${CONFIGURATION_CONTAINER_NAME}/tmp:/tmp
     networks:
-      - spring_cloud_bootstrapping_network
+      - ${CONTAINER_NETWORK_NAME}
+  discovery:
+    image: ${CONTAINER_IMAGE_REPOSITORY}/${CONTAINER_IMAGE_NAME_PREFIX}-${DISCOVERY_CONTAINER_NAME}:${TAG}
+    container_name: ${DISCOVERY_CONTAINER_NAME}
+    env_file:
+      - .env
+    build:
+      context: ${CONTAINER_IMAGE_NAME_PREFIX}-project/${CONTAINER_IMAGE_NAME_PREFIX}-${DISCOVERY_CONTAINER_NAME}/
+      dockerfile: Dockerfile
+      args:
+        - port=${DISCOVERY_CONTAINER_PORT}
+        - tag=${TAG}
+    restart: ${CONTAINER_RESTART_POLICY}
+    depends_on:
+      - ${CONFIGURATION_CONTAINER_NAME}
+    ports:
+      - "${DISCOVERY_CONTAINER_PORT}:${DISCOVERY_CONTAINER_PORT}"
+    volumes:
+      - ${HOME}/.docker/volumes/${CONTAINER_IMAGE_NAME_PREFIX}/${DISCOVERY_CONTAINER_NAME}/data:/data
+      - ${HOME}/.docker/volumes/${CONTAINER_IMAGE_NAME_PREFIX}/${DISCOVERY_CONTAINER_NAME}/tmp:/tmp
+    networks:
+      - ${CONTAINER_NETWORK_NAME}

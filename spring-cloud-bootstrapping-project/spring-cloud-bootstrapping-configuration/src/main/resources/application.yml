@@ -1,3 +1,8 @@
+eureka:
+  client:
+    registry-fetch-interval-seconds: 5
+    service-url:
+      defaultZone: http://discovery:8081/eureka/
 server:
   port: 8080
 spring:
@@ -6,15 +11,15 @@ spring:
   cloud:
     config:
       server:
-        ## For git repository
+        # For git remote repository on Github
         git:
-          ## For git remote repository on Github
+          # For git remote repository on Github
           uri: https://github.com/kinlhp/spring-cloud-bootstrapping-configuration-repository.git
-          ## For git remote repository on Docker container
-          #uri: http://repository/spring-cloud-bootstrapping-configuration-repository.git
-          ## For git local repository
-          #uri: file://../../../../spring-cloud-bootstrapping-configuration-repository.git
-        ## For file system store (needs run with 'native' profile (-Dspring.profiles.active=native)
-        #native:
-          #search-locations:
-            #- file://../../../../spring-cloud-bootstrapping-configuration-repository
+          # For git remote repository on Docker container
+          # uri: http://repository/spring-cloud-bootstrapping-configuration-repository.git
+          # For git local repository
+          # uri: file://${HOME}/spring-cloud-bootstrapping-configuration-repository.git
+        # For file system store (needs run with 'native' profile (-Dspring.profiles.active=native)
+        # native:
+          # search-locations:
+            # - file://${HOME}/spring-cloud-bootstrapping-configuration-repository

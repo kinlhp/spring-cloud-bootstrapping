@@ -4,5 +4,5 @@
  \\/   ___) | |_) | |  | | | | | (_| |  | |___| | (_) | |_| | (_| |  | |_) | (_) | (_) | |_\__ | |_| | | (_| | |_) | |_) | | | | | (_| |  | | (_| | \__ \ (_| (_) \ V /  __/ |  | |_| | |   ) ) ) )
   '   |____/| .__/|_|  |_|_| |_|\__, |   \____|_|\___/ \__,_|\__,_|  |____/ \___/ \___/ \__|___/\__|_|  \__,_| .__/| .__/|_|_| |_|\__, |  | |\__,_|_|___/\___\___/ \_/ \___|_|   \__, | |  / / / /
  ===========|_|=================|___/========================================================================|_|===|_|============|___/====\_\===================================|___/_/= /_/_/_/
- ${Ansi.BLUE}:: Spring Cloud Bootstrapping (discovery) ::                                                                                                                                                  ${application.formatted-version}
- ${Ansi.GREEN}:: Spring Boot ::                                                                                                                                                                                    ${spring-boot.formatted-version}${Ansi.DEFAULT}
+ ${Ansi.BLUE}:: Spring Cloud Bootstrapping (discovery) ::                                                                                                                                     ${application.formatted-version}
+ ${Ansi.GREEN}:: Spring Boot ::                                                                                                                                                                ${spring-boot.formatted-version}${Ansi.DEFAULT}

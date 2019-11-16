@@ -3,4 +3,4 @@ spring:
     config:
       name: discovery
       uri:
-        - http://configuration:8080
+        - http://configuration:8081

@@ -1,0 +1,11 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery:8082/eureka/
+spring:
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: configuration
+      name: gateway

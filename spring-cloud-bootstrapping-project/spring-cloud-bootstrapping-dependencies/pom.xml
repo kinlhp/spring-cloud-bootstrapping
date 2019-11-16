@@ -16,7 +16,7 @@
 		<!-- Dependency versions -->
 		<java.version>13</java.version>
 		<jaxb.version>2.3.0</jaxb.version> <!-- Eureka server JDK 11+ support -->
-		<spring-cloud.version>Hoxton.RC1</spring-cloud.version>
+		<spring-cloud.version>Hoxton.RC2</spring-cloud.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>

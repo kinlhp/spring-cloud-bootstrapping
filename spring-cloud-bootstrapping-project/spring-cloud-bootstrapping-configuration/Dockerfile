@@ -11,7 +11,7 @@ LABEL maintainer="kinlhp <lhp.kin@gmail.com>"
 #    && git init \
 #    && cd -
 
-ARG port=8080
+ARG port=8081
 ARG tag=latest
 
 ADD target/spring-cloud-bootstrapping-configuration-${tag}.jar spring-cloud-bootstrapping-configuration.jar

@@ -20,5 +20,6 @@
 		<module>spring-cloud-bootstrapping-configuration</module>
 		<module>spring-cloud-bootstrapping-discovery</module>
 		<module>spring-cloud-bootstrapping-gateway</module>
+		<module>spring-cloud-bootstrapping-provider</module>
 	</modules>
 </project>

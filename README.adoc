@@ -4,7 +4,7 @@
 
 == Building from source
 Can be easily built with the
-https://github.com/takari/maven-wrapper[maven wrapper]. You also need JDK 1.8.
+https://github.com/takari/maven-wrapper[maven wrapper]. You also need JDK 10.
 
 [indent=0]
 ----
@@ -31,6 +31,7 @@ You also need Docker Compose.
 	$ sudo docker-compose up configuration
 	$ sudo docker-compose up discovery
 	$ sudo docker-compose up gateway
+	$ sudo docker-compose up provider
 ----
 
 http://localhost:8081[Configuration exposed on port 8081].
@@ -38,6 +39,8 @@ http://localhost:8081[Configuration exposed on port 8081].
 http://localhost:8082[Discovery exposed on port 8082].
 
 http://localhost:8080[Gateway exposed on port 8080].
+
+http://localhost:8083[Provider exposed on port 8083].
 
 NOTE: Some settings can be changed in the `.env` file.
 
@@ -59,3 +62,7 @@ Discovery server.
 
 === spring-cloud-bootstrapping-gateway
 Gateway server.
+
+
+=== spring-cloud-bootstrapping-provider
+Service provider.

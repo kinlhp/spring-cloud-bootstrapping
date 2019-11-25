@@ -16,7 +16,7 @@
 	<properties>
 		<main.basedir>${basedir}</main.basedir>
 		<!-- Dependency versions -->
-		<revision>1.5.0.BUILD-SNAPSHOT</revision>
+		<revision>1.5.0.RELEASE</revision>
 	</properties>
 	<modules>
 		<module>spring-cloud-bootstrapping-project</module>

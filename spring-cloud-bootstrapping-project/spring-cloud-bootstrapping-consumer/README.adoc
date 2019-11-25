@@ -1,0 +1,2 @@
+= spring-cloud-bootstrapping-consumer
+Spring Cloud Bootstrapping (consumer).

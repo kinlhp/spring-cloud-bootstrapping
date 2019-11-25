@@ -16,16 +16,16 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @AutoConfigureMockMvc
 @SpringBootTest
-public class RandomGreetingResourceTests {
+class RandomGreetingResourceTests {
     private static final MediaType APPLICATION_JSON_UTF8 = new MediaType("application", "json", StandardCharsets.UTF_8);
     private static final String RESOURCE = "/greetings";
 
     @Autowired
     private MockMvc mockMvc;
 
-    @DisplayName(value = "Random greeting test.")
+    @DisplayName(value = "Random greeting request.")
     @Test
-    void shouldReturnRandomGreeting() throws Exception {
+    final void shouldReturnRandomGreeting() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get(RESOURCE).accept(APPLICATION_JSON_UTF8))
                 .andDo(MockMvcResultHandlers.print())
                 .andExpect(MockMvcResultMatchers.status().isOk())

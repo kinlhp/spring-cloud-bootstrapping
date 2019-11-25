@@ -32,6 +32,7 @@ You also need Docker Compose.
 	$ sudo docker-compose up discovery
 	$ sudo docker-compose up gateway
 	$ sudo docker-compose up provider
+	$ sudo docker-compose up consumer
 ----
 
 http://localhost:8081[Configuration exposed on port 8081].
@@ -42,9 +43,34 @@ http://localhost:8080[Gateway exposed on port 8080].
 
 http://localhost:8083[Provider exposed on port 8083].
 
+http://localhost:8084[Consumer exposed on port 8084].
+
 NOTE: Some settings can be changed in the `.env` file.
 
 You may want to automate the https://docs.docker.com/compose/startup-order/[order of startup and shutdown of containers].
+
+
+
+== Making requests
+You alse need cURL.
+
+
+=== Request to provider
+
+[indent=0]
+----
+	$ curl -X GET http://localhost:8080/provider/greetings
+----
+
+
+=== Request to consumer
+----
+	$ curl -X GET http://localhost:8080/consumer/greetings
+or
+	$ curl -X GET http://localhost:8080/consumer/greetings?name=Foo
+----
+
+NOTE: Check instances currently registered on http://localhost:8082.
 
 
 
@@ -53,16 +79,28 @@ There are a number of modules in Spring Cloud Bootstrapping, here is a quick ove
 
 
 === spring-cloud-bootstrapping-configuration
-Configuration server.
+https://github.com/kinlhp/spring-cloud-bootstrapping/tree/master/spring-cloud-bootstrapping-project/spring-cloud-bootstrapping-configuration[Configuration server].
 
 
 === spring-cloud-bootstrapping-discovery
-Discovery server.
+https://github.com/kinlhp/spring-cloud-bootstrapping/tree/master/spring-cloud-bootstrapping-project/spring-cloud-bootstrapping-discovery[Discovery server].
 
 
 === spring-cloud-bootstrapping-gateway
-Gateway server.
+https://github.com/kinlhp/spring-cloud-bootstrapping/tree/master/spring-cloud-bootstrapping-project/spring-cloud-bootstrapping-gateway[Gateway server].
 
 
 === spring-cloud-bootstrapping-provider
-Service provider.
+https://github.com/kinlhp/spring-cloud-bootstrapping/tree/master/spring-cloud-bootstrapping-project/spring-cloud-bootstrapping-provider[Service provider].
+
+
+=== spring-cloud-bootstrapping-consumer
+https://github.com/kinlhp/spring-cloud-bootstrapping/tree/master/spring-cloud-bootstrapping-project/spring-cloud-bootstrapping-consumer[Service consumer].
+
+
+
+= References
+- https://www.baeldung.com/spring-cloud-bootstrapping[Baeldung].
+- http://www.matera.com/blog/post/desenvolvendo-microsservicos-spring-cloud-netflix[Blog Matera].
+- https://docs.docker.com/[Docker].
+- https://docs.docker.com/[Docker Compose].

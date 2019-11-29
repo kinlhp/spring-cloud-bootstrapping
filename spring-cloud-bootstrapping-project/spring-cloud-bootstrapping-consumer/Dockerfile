@@ -3,7 +3,7 @@ FROM adoptopenjdk/openjdk13:jre-13.0.1_9-alpine
 
 LABEL maintainer="kinlhp <lhp.kin@gmail.com>"
 
-ARG port=8084
+ARG port=80
 ARG tag=latest
 
 ADD target/spring-cloud-bootstrapping-consumer-${tag}.jar spring-cloud-bootstrapping-consumer.jar

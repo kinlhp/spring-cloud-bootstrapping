@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 @ExtendWith(value = { MockitoExtension.class })
 class RandomGreetingConsumerTests {
     private static final String GREETING = "Hello";
-    private static final URI RANDOM_GREETING_PROVIDER_URI = URI.create("http://provider:8083");
+    private static final URI RANDOM_GREETING_PROVIDER_URI = URI.create("http://provider");
 
     @InjectMocks
     private RandomGreetingConsumer randomGreetingConsumer;

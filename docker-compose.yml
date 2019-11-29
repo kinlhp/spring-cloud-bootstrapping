@@ -17,7 +17,7 @@ services:
         - tag=${TAG}
     restart: ${CONTAINER_RESTART_POLICY}
     ports:
-      - "${CONFIGURATION_CONTAINER_PORT}:${CONFIGURATION_CONTAINER_PORT}"
+      - "${CONFIGURATION_PORT_MAPPING}:${CONFIGURATION_CONTAINER_PORT}"
     volumes:
       ## For git local repository
       #- ${HOME}/.docker/volumes/${CONTAINER_IMAGE_NAME_PREFIX}/${CONFIGURATION_CONTAINER_NAME}/${CONTAINER_IMAGE_NAME_PREFIX}-${CONFIGURATION_CONTAINER_NAME}-repository.git:/${CONTAINER_IMAGE_NAME_PREFIX}-${CONFIGURATION_CONTAINER_NAME}-repository.git
@@ -40,7 +40,7 @@ services:
     depends_on:
       - ${PROVIDER_CONTAINER_NAME}
     ports:
-      - "${CONSUMER_CONTAINER_PORT}:${CONSUMER_CONTAINER_PORT}"
+      - "${CONSUMER_PORT_MAPPING}:${CONSUMER_CONTAINER_PORT}"
     volumes:
       - ${HOME}/.docker/volumes/${CONTAINER_IMAGE_NAME_PREFIX}/${CONSUMER_CONTAINER_NAME}/data:/data
       - ${HOME}/.docker/volumes/${CONTAINER_IMAGE_NAME_PREFIX}/${CONSUMER_CONTAINER_NAME}/tmp:/tmp
@@ -61,7 +61,7 @@ services:
     depends_on:
       - ${CONFIGURATION_CONTAINER_NAME}
     ports:
-      - "${DISCOVERY_CONTAINER_PORT}:${DISCOVERY_CONTAINER_PORT}"
+      - "${DISCOVERY_PORT_MAPPING}:${DISCOVERY_CONTAINER_PORT}"
     volumes:
       - ${HOME}/.docker/volumes/${CONTAINER_IMAGE_NAME_PREFIX}/${DISCOVERY_CONTAINER_NAME}/data:/data
       - ${HOME}/.docker/volumes/${CONTAINER_IMAGE_NAME_PREFIX}/${DISCOVERY_CONTAINER_NAME}/tmp:/tmp
@@ -82,7 +82,7 @@ services:
     depends_on:
       - ${DISCOVERY_CONTAINER_NAME}
     ports:
-      - "${GATEWAY_CONTAINER_PORT}:${GATEWAY_CONTAINER_PORT}"
+      - "${GATEWAY_PORT_MAPPING}:${GATEWAY_CONTAINER_PORT}"
     volumes:
       - ${HOME}/.docker/volumes/${CONTAINER_IMAGE_NAME_PREFIX}/${GATEWAY_CONTAINER_NAME}/data:/data
       - ${HOME}/.docker/volumes/${CONTAINER_IMAGE_NAME_PREFIX}/${GATEWAY_CONTAINER_NAME}/tmp:/tmp
@@ -103,7 +103,7 @@ services:
     depends_on:
       - ${GATEWAY_CONTAINER_NAME}
     ports:
-      - "${PROVIDER_CONTAINER_PORT}:${PROVIDER_CONTAINER_PORT}"
+      - "${PROVIDER_PORT_MAPPING}:${PROVIDER_CONTAINER_PORT}"
     volumes:
       - ${HOME}/.docker/volumes/${CONTAINER_IMAGE_NAME_PREFIX}/${PROVIDER_CONTAINER_NAME}/data:/data
       - ${HOME}/.docker/volumes/${CONTAINER_IMAGE_NAME_PREFIX}/${PROVIDER_CONTAINER_NAME}/tmp:/tmp

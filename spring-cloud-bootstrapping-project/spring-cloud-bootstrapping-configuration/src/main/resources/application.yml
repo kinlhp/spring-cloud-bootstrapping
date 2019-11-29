@@ -2,9 +2,9 @@ eureka:
   client:
     registry-fetch-interval-seconds: 5
     service-url:
-      defaultZone: http://discovery:8082/eureka/
+      defaultZone: http://discovery/eureka/
 server:
-  port: 8081
+  port: 80
 spring:
   application:
     name: configuration

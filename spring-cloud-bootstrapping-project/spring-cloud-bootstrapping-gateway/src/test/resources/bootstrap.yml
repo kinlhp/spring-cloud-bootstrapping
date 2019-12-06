@@ -1,11 +1,17 @@
-eureka:
-  client:
-    service-url:
-      defaultZone: http://discovery/eureka/
+server:
+  port: 8080
 spring:
+  application:
+    name: gateway
   cloud:
     config:
-      discovery:
-        enabled: true
-        service-id: configuration
-      name: gateway
+      enabled: false
+    discovery:
+      enabled: false
+    loadbalancer:
+      ribbon:
+        # Or remove spring-cloud-starter-netflix-ribbon from your project.
+        enabled: false
+  profiles:
+    active:
+      - default

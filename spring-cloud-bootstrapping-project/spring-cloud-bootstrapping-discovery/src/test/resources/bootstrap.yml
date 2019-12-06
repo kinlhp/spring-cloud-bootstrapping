@@ -1,6 +1,23 @@
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://localhost:8082/eureka/
+  instance:
+    hostname: localhost
+server:
+  port: 8082
 spring:
+  application:
+    name: discovery
   cloud:
     config:
-      name: discovery
-      uri:
-        - http://configuration
+      enabled: false
+    loadbalancer:
+      ribbon:
+        # Or remove spring-cloud-starter-netflix-ribbon from your project.
+        enabled: false
+  profiles:
+    active:
+      - default

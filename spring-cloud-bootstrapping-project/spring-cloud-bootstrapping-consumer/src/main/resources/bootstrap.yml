@@ -9,3 +9,6 @@ spring:
         enabled: true
         service-id: configuration
       name: consumer
+  profiles:
+    active:
+      - default

@@ -10,6 +10,7 @@ spring:
     name: configuration
   cloud:
     config:
+      label: master
       server:
         # For git remote repository on Github
         git:
@@ -23,3 +24,10 @@ spring:
         # native:
           # search-locations:
             # - file://${HOME}/spring-cloud-bootstrapping-configuration-repository
+    loadbalancer:
+      ribbon:
+        # Or remove spring-cloud-starter-netflix-ribbon from your project.
+        enabled: false
+  profiles:
+    active:
+      - default

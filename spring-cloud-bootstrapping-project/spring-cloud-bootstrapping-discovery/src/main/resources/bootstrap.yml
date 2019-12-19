@@ -4,3 +4,6 @@ spring:
       name: discovery
       uri:
         - http://configuration
+  profiles:
+    active:
+      - default
